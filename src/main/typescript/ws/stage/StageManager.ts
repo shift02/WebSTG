@@ -40,7 +40,7 @@ namespace ws.stage {
     /** ステージを切り替える */
     public changeStage(stage_ :IStage){
 
-      console.log('[StageManager] : ステージを切り替え, '+stage_.toString());
+      console.log('[StageManager] : ステージを切り替え, '+stage_.toString);
 
       var dom_ = document.getElementById("stage_transition");
       dom_.className="stage_transition_display";
