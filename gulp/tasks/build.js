@@ -3,7 +3,7 @@ var runSequence	 = require("run-sequence");
 
 gulp.task('build', function(callback) {
 	
-	runSequence(['buildTypeScript','buildHTML','buildCSS'],'buildClientFinish', callback);
+	runSequence(['buildTypeScript','buildHTML','buildCSS','buildResources'],'buildClientFinish', callback);
 	
 });
 
