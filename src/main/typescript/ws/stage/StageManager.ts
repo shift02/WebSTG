@@ -24,6 +24,7 @@ namespace ws.stage {
     private stage : IStage;
     private next : IStage;
 
+    public LOGO : IStage;
     public GAME : IStage;
 
 
@@ -33,6 +34,7 @@ namespace ws.stage {
     private init():void{
 
       this.stage = null;
+      this.LOGO = new StageLogo();
       this.GAME = new StageGame();
 
     }

@@ -50,6 +50,16 @@ section{
 	z-index: 80;
 }
 
+/******************** ‹N“®‰æ–Ê **************************/
+
+#stage_logo{
+	background-color: black;
+}
+
+#stage_logo img{
+	margin: 64px 256px;
+}
+
 /******************** ƒQ[ƒ€‰æ–Ê **************************/
 
 #stage_game{
