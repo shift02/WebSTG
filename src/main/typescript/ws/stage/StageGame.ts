@@ -33,7 +33,6 @@ namespace ws.stage {
     public doKeyUp(key_ : any) : void{
         
         
-        console.log(key_);
         
     }
 
