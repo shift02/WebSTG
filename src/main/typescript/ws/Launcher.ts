@@ -5,7 +5,7 @@ namespace ws {
         /** システムのFPS */
         public static systemFPS: ws.util.FPS;
 
-        public static game: ws.Game;
+        //public static game: ws.Game;
 
         public static imgLoader: ws.network.ImageLoader;
 
@@ -43,11 +43,7 @@ namespace ws {
         /** タイトル画面に切り替える */
         public static startTitle(): void {
 
-            this.game = new Game();
-
-            this.game.preInit();
-
-            this.game.startGame();
+            Game.startGame();
 
         }
 
