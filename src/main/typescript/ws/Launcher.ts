@@ -43,7 +43,7 @@ namespace ws {
         /** タイトル画面に切り替える */
         public static startTitle(): void {
 
-            Game.startGame();
+            Game.initGame();
 
         }
 

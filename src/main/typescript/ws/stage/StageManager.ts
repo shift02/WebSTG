@@ -27,6 +27,7 @@ namespace ws.stage {
         private next: IStage;
 
         public LOGO: IStage;
+        public LOADING: StageLoading;
         public GAME: IStage;
 
 
@@ -37,6 +38,7 @@ namespace ws.stage {
 
             this.stage = null;
             this.LOGO = new StageLogo();
+            this.LOADING = new StageLoading();
             this.GAME = new StageGame();
 
         }

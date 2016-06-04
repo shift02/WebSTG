@@ -24,20 +24,26 @@ namespace ws.stage {
 
     public updateSystem() : void {
 
+        ws.Game.updateSystem();
 
     }
 
     public updateRenderer() : void{
+        
+        ws.renderer.RendererGame.updateRenderer();
+        
     }
 
     public doKeyUp(key_ : any) : void{
         
-        
+        ws.Game.doKeyUp(key_);
         
     }
 
     public doKeyDown(key_ : any) : void{
     
+        ws.Game.doKeyDown(key_);
+        
     }
     
 

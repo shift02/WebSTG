@@ -60,6 +60,36 @@ section{
 	margin: 64px 256px;
 }
 
+/******************** ì«Ç›çûÇ›âÊñ  **************************/
+
+#stage_loading{
+	background-color: #000000;
+	color: white;
+}
+
+#loading_string {
+	font-size: 38px;
+	top: 220px;
+	left: 390px;
+	position: absolute;
+}
+
+#loading_progress{
+	width:400px;
+	/*height:28px;*/
+	top: 340px;
+	left: 310px;
+	position: absolute;
+}
+
+#loading_img{
+	/*height:28px;*/
+	bottom:20px;
+	right: 28px;
+	position: absolute;
+}
+
+
 /******************** ÉQÅ[ÉÄâÊñ  **************************/
 
 #stage_game{
