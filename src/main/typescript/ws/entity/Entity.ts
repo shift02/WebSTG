@@ -21,6 +21,7 @@ namespace ws.entity {
 
         public updateEntity(): void {
             this.doMove();
+                        
         }
 
         public doMove(): void {
@@ -69,17 +70,33 @@ namespace ws.entity {
         public getPosX(): number {
             return this.posX;
         }
+        
+        public setPosX(x_ : number):void{
+           this.posX = x_;   
+        }
 
         public getPosY(): number {
             return this.posY;
         }
         
+        public setPosY(y_ : number):void{
+           this.posY = y_;   
+        }
+        
         public getMoveX(): number {
             return this.moveX;
+        }
+        
+        public setMoveX(x_ : number):void{
+           this.moveX = x_;   
         }
 
         public getMoveY(): number {
             return this.moveY;
+        }
+        
+        public setMoveY(y_ : number):void{
+           this.moveY = y_;   
         }
 
         public getSpeed(): number {
@@ -114,6 +131,11 @@ namespace ws.entity {
         }
 
         public getImage(): HTMLImageElement {
+            
+            if(this.img==null){
+                this.img = ws.Launcher.imgLoader.load(this.imgName,null);
+            }
+            
             return this.img;
         }
 

@@ -4,7 +4,7 @@ namespace ws {
 
         public static player: ws.entity.EntityPlayer;
 
-        public static world: ws.world.WorldTest;
+        public static world: ws.world.WorldBase;
 
         public static updateRenderer:boolean = false;
         
@@ -22,11 +22,14 @@ namespace ws {
             
             //ワールドの初期化
             this.world = new ws.world.WorldTest();
+            this.world.init();
 
             //プレイヤーの初期化
             this.player = new ws.entity.EntityPlayer();
             this.player.setImgName("p");
             this.player.load();
+            
+            new ws.entity.EntityBullet().setImgName("b").load();
             
             
             //描画の初期化
@@ -62,12 +65,19 @@ namespace ws {
             
 
         }
+        
+        
+        //World関係
+        public static spawnplayerBullet(e_ : ws.entity.EntityBullet){
+            
+           this.world.getPlayerBullets().push(e_);
+        }
 
         /** システムループ　FPS30 */
         public static updateSystem(): void {
 
             if (this.player != null) this.player.updateEntity();
-            
+            if(this.world !=null)this.world.updateWorld();
             
             this.updateRenderer = true;
 

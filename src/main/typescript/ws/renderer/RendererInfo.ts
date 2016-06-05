@@ -52,6 +52,19 @@ namespace ws.renderer {
                 this.rendererFPS.coolTime = 0;
             }
 
+            this.context.clearRect(0, 65, this.canvas.width, 200);
+
+
+            this.context.restore();
+            this.context.font = "14px 'ＭＳ ゴシック'";
+            this.context.lineWidth = 3.0;
+            this.context.strokeStyle = '#555555';
+            this.context.strokeText('P_Bullets  　:  ' + ws.Game.world.getPlayerBullets().length, 10, 50);
+
+            this.context.fillStyle = 'white';
+            this.context.fillText('P_Bullets  　:  ' + ws.Game.world.getPlayerBullets().length, 10, 50);
+
+
         }
 
     }

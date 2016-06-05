@@ -9,6 +9,8 @@ module ws.renderer {
         public static init() {
 
             ws.renderer.RendererPlayer.init();
+            
+            ws.renderer.RendererPlayerBullets.init();
 
 
         }
@@ -20,6 +22,8 @@ module ws.renderer {
             //ws.Game.updateRenderer = false;
 
             ws.renderer.RendererPlayer.updateRenderer();
+            
+            ws.renderer.RendererPlayerBullets.updateRenderer();
 
         }
 

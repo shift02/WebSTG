@@ -106,6 +106,10 @@ section{
 	vertical-align : bottom;
 }
 
+#game_player_bullets{
+	z-index: 28;
+}
+
 #game_player{
 	z-index: 30;
 }

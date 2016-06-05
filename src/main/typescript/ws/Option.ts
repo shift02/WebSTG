@@ -7,6 +7,7 @@ namespace ws{
         public static keyDOWN = 40; //下キー
         public static keyRIGHT = 39; //右キー
         
+        public static keyA = 90;
         
     }
     

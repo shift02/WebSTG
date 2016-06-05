@@ -3,11 +3,11 @@ namespace ws.entity {
 
     export class EntityPlayer extends Entity {
 
-        
+
         public updateEntity(): void {
-          super.updateEntity();   
+            super.updateEntity();
         }
-        
+
         /** キーから指が離れた時 */
         public doKeyUp(key_: any): void {
 
@@ -22,7 +22,7 @@ namespace ws.entity {
                     this.moveY = 0; break;
                 case ws.Option.keyRIGHT:
                     this.moveX = 0; break;
-                
+
             }
 
 
@@ -42,10 +42,24 @@ namespace ws.entity {
                     this.moveY = 1; break;
                 case ws.Option.keyRIGHT:
                     this.moveX = 1; break;
-                
+                case ws.Option.keyA:
+                    this.doShot(); break;
+
             }
 
 
+        }
+
+        private doShot() {
+
+            var b_ = new ws.entity.EntityBullet();
+            b_.setImgName("b");
+            b_.setPosX(this.posX);
+            b_.setPosY(this.posY-16);
+            b_.setMoveY(-1);
+            
+            ws.Game.spawnplayerBullet(b_);
+            
         }
 
     }
