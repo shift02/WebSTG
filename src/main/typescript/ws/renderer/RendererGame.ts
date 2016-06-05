@@ -16,8 +16,8 @@ module ws.renderer {
         /** 描画用のループ処理　常に呼ばれる */
         public static updateRenderer() {
 
-            if (!ws.Game.updateRenderer) return;
-            ws.Game.updateRenderer = false;
+            //if (!ws.Game.updateRenderer) return;
+            //ws.Game.updateRenderer = false;
 
             ws.renderer.RendererPlayer.updateRenderer();
 

@@ -9,9 +9,15 @@ namespace ws.entity {
         protected moveY: number = 0;
 
         protected speed = 9;
+        
+        protected width = 32;
+        protected height = 32;
 
         protected imgName: string = null;
         protected img: HTMLImageElement = null;
+
+        public oldX: number;
+        public oldY: number;
 
         public updateEntity(): void {
             this.doMove();
@@ -19,8 +25,12 @@ namespace ws.entity {
 
         public doMove(): void {
 
-            if (this.canMoveX()) this.doMoveX();
-            if (this.canMoveY()) this.doMoveY();
+            if (this.canMoveX() && ws.Game.world.canMoveX(this,this.moveX)){
+                 this.doMoveX();
+            }
+            if (this.canMoveY() && ws.Game.world.canMoveY(this,this.moveY)){
+                 this.doMoveY();
+            }
 
         }
 
@@ -33,28 +43,55 @@ namespace ws.entity {
         }
 
         public doMoveX(): void {
-            for(let i=0;i<this.speed;i++){
-                if (this.canMoveX())this.posX += this.moveX;
+
+            this.oldX = this.posX;
+
+            for (let i = 0; i < this.speed; i++) {
+                if (this.canMoveX() && ws.Game.world.canMoveX(this,this.moveX)){
+                     this.posX += this.moveX;
+                }
             }
+
         }
 
         public doMoveY(): void {
-            for(let i=0;i<this.speed;i++){
-                if (this.canMoveY())this.posY += this.moveY;
+            
+            this.oldY = this.posY;
+            
+            for (let i = 0; i < this.speed; i++) {
+                if (this.canMoveY() && ws.Game.world.canMoveY(this,this.moveY)){
+                     this.posY += this.moveY;
+                }
             }
 
         }
 
-        public getPosX():number{
+        public getPosX(): number {
             return this.posX;
         }
-        
-        public getPosY():number{
-            return this.posY;   
+
+        public getPosY(): number {
+            return this.posY;
         }
         
+        public getMoveX(): number {
+            return this.moveX;
+        }
+
+        public getMoveY(): number {
+            return this.moveY;
+        }
+
         public getSpeed(): number {
             return this.speed;
+        }
+        
+        public getWidth(): number {
+            return this.width;
+        }
+        
+        public getHeight(): number {
+            return this.height;
         }
 
         /** Entityの画像の名前をセットする */
