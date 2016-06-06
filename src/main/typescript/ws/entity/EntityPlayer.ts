@@ -3,9 +3,9 @@ namespace ws.entity {
 
     export class EntityPlayer extends Entity {
 
-        constructor(){
+        constructor() {
             super();
-            
+
         }
 
         public updateEntity(): void {
@@ -56,14 +56,17 @@ namespace ws.entity {
 
         private doShot() {
 
-            var b_ = new ws.entity.EntityBullet();
+            
+            
+            var b_ = new ws.entity.EntityBullet(ws.Game.bullet);
             b_.setImgName("b");
-            b_.setPosX(this.pos.x);
-            b_.setPosY(this.pos.y-16);
+            b_.setPosX(this.pos.x );
+            b_.setPosY(this.pos.y - 16);
             b_.setMoveY(-1);
             
             ws.Game.spawnplayerBullet(b_);
             
+
         }
 
     }

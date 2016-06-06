@@ -50,7 +50,7 @@ namespace ws.entity {
 
             this.oldX = this.pos.x;
 
-            for (let i = 0; i < this.speed; i++) {
+            for (let i = 0; i < this.getSpeed(); i++) {
                 if (this.canMoveX() && ws.Game.world.canMoveX(this,this.moveX)){
                      this.pos.x += this.moveX;
                 }
@@ -62,7 +62,7 @@ namespace ws.entity {
             
             this.oldY = this.pos.y;
             
-            for (let i = 0; i < this.speed; i++) {
+            for (let i = 0; i < this.getSpeed(); i++) {
                 if (this.canMoveY() && ws.Game.world.canMoveY(this,this.moveY)){
                      this.pos.y += this.moveY;
                 }

@@ -3,6 +3,8 @@ namespace ws {
     export class Game {
 
         public static player: ws.entity.EntityPlayer;
+        
+        public static bullet:ws.bullet.BulletBase;
 
         public static world: ws.world.WorldBase;
 
@@ -29,7 +31,12 @@ namespace ws {
             this.player.setImgName("p");
             this.player.load();
             
-            new ws.entity.EntityBullet().setImgName("b").load();
+            
+            this.bullet = new ws.bullet.BulletBase();
+            this.bullet.setImgName("b");
+            this.bullet.load();
+            
+            //new ws.entity.EntityBullet().setImgName("b").load();
             
             
             //描画の初期化
