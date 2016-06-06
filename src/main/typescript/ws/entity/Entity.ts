@@ -2,9 +2,8 @@ namespace ws.entity {
 
     export class Entity {
 
-        protected posX: number = 0;
-        protected posY: number = 0;
-
+        protected pos: ws.util.Vec2;
+        
         protected moveX: number = 0;
         protected moveY: number = 0;
 
@@ -18,6 +17,10 @@ namespace ws.entity {
 
         public oldX: number;
         public oldY: number;
+        
+        constructor(){
+            this.pos = new ws.util.Vec2();
+        }
 
         public updateEntity(): void {
             this.doMove();
@@ -45,11 +48,11 @@ namespace ws.entity {
 
         public doMoveX(): void {
 
-            this.oldX = this.posX;
+            this.oldX = this.pos.x;
 
             for (let i = 0; i < this.speed; i++) {
                 if (this.canMoveX() && ws.Game.world.canMoveX(this,this.moveX)){
-                     this.posX += this.moveX;
+                     this.pos.x += this.moveX;
                 }
             }
 
@@ -57,30 +60,34 @@ namespace ws.entity {
 
         public doMoveY(): void {
             
-            this.oldY = this.posY;
+            this.oldY = this.pos.y;
             
             for (let i = 0; i < this.speed; i++) {
                 if (this.canMoveY() && ws.Game.world.canMoveY(this,this.moveY)){
-                     this.posY += this.moveY;
+                     this.pos.y += this.moveY;
                 }
             }
 
         }
 
+        public getPos():ws.util.Vec2{
+          return this.pos;   
+        }
+        
         public getPosX(): number {
-            return this.posX;
+            return this.pos.x;
         }
         
         public setPosX(x_ : number):void{
-           this.posX = x_;   
+           this.pos.x = x_;   
         }
 
         public getPosY(): number {
-            return this.posY;
+            return this.pos.y;
         }
         
         public setPosY(y_ : number):void{
-           this.posY = y_;   
+           this.pos.y = y_;   
         }
         
         public getMoveX(): number {

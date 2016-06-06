@@ -3,6 +3,10 @@ namespace ws.entity {
 
     export class EntityPlayer extends Entity {
 
+        constructor(){
+            super();
+            
+        }
 
         public updateEntity(): void {
             super.updateEntity();
@@ -54,8 +58,8 @@ namespace ws.entity {
 
             var b_ = new ws.entity.EntityBullet();
             b_.setImgName("b");
-            b_.setPosX(this.posX);
-            b_.setPosY(this.posY-16);
+            b_.setPosX(this.pos.x);
+            b_.setPosY(this.pos.y-16);
             b_.setMoveY(-1);
             
             ws.Game.spawnplayerBullet(b_);
