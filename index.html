@@ -2,30 +2,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Web STG #α</title>
-<link rel="stylesheet" href="./index.css">
-<script type="text/javascript" src="./game.js"></script>
+<title>Web STG</title>
+<script language="javascript" type="text/javascript">
+        function onLinkClick() {
+        	window.open("./game.html","Game",
+        			"menubar=no,toolbar=no,location=no,status=no,resizable=no,"+
+        			"left=100,top=150,width=1024,height=640");
+            return false;
+        }
+</script>
 </head>
+
 <body>
 
-<div id="container">
-<section id="stage_transition"></section>
-<section id="stage_info" class="none_display">
-<canvas id="info_main" width="1024" height="640"></canvas>
-</section>
-<section id="stage_logo" class="none_display">
-<img alt="logo" src="./app/resources/assets/core/logo.png" width="512" height="512">
-</section>
-<section id="stage_loading" class="none_display">
-<p id="loading_string">Now loading</p>
-<progress id="loading_progress" max="100">データを読込中。</progress>
-<img id="loading_img" alt="ロゴ画像" src="./app/resources/assets/core/logo.png"width="128" height="128">
-</section>
-<section id="stage_game" class="none_display">
-<canvas id="game_player_bullets" width="1024" height="640"></canvas>
-<canvas id="game_player" width="1024" height="640"></canvas>
-</section>
-</div>
+<a href="#" onclick="onLinkClick();">ゲームを起動</a>
 
 </body>
 </html>
