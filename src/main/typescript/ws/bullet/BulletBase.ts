@@ -6,6 +6,14 @@ namespace ws.bullet {
 
         protected imgName: string = null;
         protected img: HTMLImageElement = null;
+        
+        constructor(){
+            
+        }
+        
+        public updateBullet(entity:ws.entity.EntityBullet): void {
+            
+        }
 
         public setSpeed(s_: number): BulletBase {
             this.speed = s_;
@@ -14,6 +22,10 @@ namespace ws.bullet {
 
         public getSpeed(entity:ws.entity.EntityBullet): number {
             return this.speed;
+        }
+        
+        public isDeath(entity:ws.entity.EntityBullet): boolean {
+            return false;
         }
 
         /** Entityの画像の名前をセットする */

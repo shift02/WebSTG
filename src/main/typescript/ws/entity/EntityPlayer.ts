@@ -47,25 +47,36 @@ namespace ws.entity {
                 case ws.Option.keyRIGHT:
                     this.moveX = 1; break;
                 case ws.Option.keyA:
-                    this.doShot(); break;
+                    this.doMainShot(); break;
+                case ws.Option.keyB:
+                    this.doSub(); break;
 
             }
 
 
         }
 
-        private doShot() {
+        private doMainShot() {
 
-            
-            
             var b_ = new ws.entity.EntityBullet(ws.Game.bullet);
-            b_.setImgName("b");
-            b_.setPosX(this.pos.x );
+            //b_.setImgName("b");
+            b_.setPosX(this.pos.x);
             b_.setPosY(this.pos.y - 16);
             b_.setMoveY(-1);
-            
+
             ws.Game.spawnplayerBullet(b_);
-            
+
+        }
+
+        private doSub() {
+
+            var b_ = new ws.entity.EntityBullet(ws.Game.bullet2);
+            //b_.setImgName("b");
+            b_.setPosX(this.pos.x);
+            b_.setPosY(this.pos.y - 16);
+            b_.setMoveY(-1);
+
+            ws.Game.spawnplayerBullet(b_);
 
         }
 

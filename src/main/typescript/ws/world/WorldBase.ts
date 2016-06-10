@@ -27,7 +27,7 @@ namespace ws.world {
 
                 this.playerBullets[i].updateEntity();
 
-                if (this.isOffScreen(this.playerBullets[i])) {
+                if (this.isOffScreen(this.playerBullets[i]) || this.playerBullets[i].isDeath()) {
                     this.playerBullets.splice(i, 1);
                 }
             }

@@ -5,6 +5,7 @@ namespace ws {
         public static player: ws.entity.EntityPlayer;
         
         public static bullet:ws.bullet.BulletBase;
+        public static bullet2:ws.bullet.BulletBase;
 
         public static world: ws.world.WorldBase;
 
@@ -35,6 +36,10 @@ namespace ws {
             this.bullet = new ws.bullet.BulletBase();
             this.bullet.setImgName("b");
             this.bullet.load();
+            
+            this.bullet2 = new ws.bullet.BulletSlow();
+            this.bullet2.setImgName("bs");
+            this.bullet2.load();
             
             //new ws.entity.EntityBullet().setImgName("b").load();
             

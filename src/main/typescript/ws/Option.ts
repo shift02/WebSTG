@@ -8,6 +8,7 @@ namespace ws{
         public static keyRIGHT = 39; //右キー
         
         public static keyA = 90;
+        public static keyB = 88;
         
     }
     

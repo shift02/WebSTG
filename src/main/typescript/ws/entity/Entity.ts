@@ -18,6 +18,9 @@ namespace ws.entity {
         public oldX: number;
         public oldY: number;
         
+        //なんでも入れれる入れ物
+        protected data:any  = {};
+        
         constructor(){
             this.pos = new ws.util.Vec2();
         }
@@ -116,6 +119,15 @@ namespace ws.entity {
         
         public getHeight(): number {
             return this.height;
+        }
+        
+        /** 死亡しているか */
+        public isDeath(): boolean {
+            return false;
+        }
+        
+        public getData():any{
+           return this.data;   
         }
 
         /** Entityの画像の名前をセットする */
