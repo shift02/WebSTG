@@ -74,10 +74,10 @@ namespace ws.util {
 
         /** Return the difference of two vectors. */
         public sub(v_ : Vec2):Vec2{
-            var sum = new Vec2();
-            sum.x = v_.x - this.x;
-            sum.y = v_.y - this.y;
-            return sum;
+            var diff = new Vec2();
+            diff.x = v_.x - this.x;
+            diff.y = v_.y - this.y;
+            return diff;
         }
 
         /** Return the dot product of two vectors. */
