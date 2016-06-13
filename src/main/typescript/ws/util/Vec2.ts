@@ -6,13 +6,25 @@ namespace ws.util {
 
         public y: number = 0;
 
+        static fromXY(x_: number, y_: number):Vec2{
+            var v_ = new Vec2();
+            v_.setXY(x_, y_);
+            return v_;
+        }
+
+        static fromPolar(a_: number, r_: number):Vec2{
+            var v_ = new Vec2();
+            v_.setPolar(a_, r_);
+            return v_;
+        }
+
         public setXY(x_: number, y_: number) {
             this.x = x_;
             this.y = y_;
         }
 
         /** Set vector from radius and angle.*/
-        public setPolar(r_: number, a_: number) {
+        public setPolar(a_: number, r_: number) {
             this.x = Math.cos(a_) * r_;
             this.y = Math.sin(a_) * r_;
         }

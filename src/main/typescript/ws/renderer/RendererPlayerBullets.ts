@@ -29,16 +29,17 @@ module ws.renderer {
 
                 if (b_ == null) continue;
 
-                var pX = b_.getPosX();
-                var pY = b_.getPosY();
+                var pos = b_.getPos();
+                var pX = pos.x;
+                var pY = pos.y;
 
                 if (b_.oldX != this.oldX) {
-                    pX = b_.oldX + Math.floor((b_.getPosX() - b_.oldX) / 2);
+                    pX = b_.oldX + Math.floor((pos.x - b_.oldX) / 2);
                     this.oldX = b_.oldX;
                 }
 
                 if (b_.oldY != this.oldY) {
-                    pY = b_.oldY + Math.floor((b_.getPosY() - b_.oldY) / 2);
+                    pY = b_.oldY + Math.floor((pos.y - b_.oldY) / 2);
                     this.oldY = b_.oldY;
                 }
 

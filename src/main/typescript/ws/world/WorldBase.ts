@@ -36,10 +36,11 @@ namespace ws.world {
 
         public isOffScreen(e_: ws.entity.Entity): boolean {
 
-            if (e_.getPosX() + e_.getWidth() < 0) return true;
-            if (e_.getPosY() + e_.getHeight() < 0) return true;
-            if (e_.getPosX() > this.getWidth()) return true;
-            if (e_.getPosY() > this.getHeight()) return true;
+            var pos = e_.getPos();
+            if (pos.x + e_.getWidth() < 0) return true;
+            if (pos.y + e_.getHeight() < 0) return true;
+            if (pos.x > this.getWidth()) return true;
+            if (pos.y > this.getHeight()) return true;
 
             return false;
         }
@@ -75,9 +76,10 @@ namespace ws.world {
         }
 
         public canPlayerMoveX(p_: ws.entity.EntityPlayer): boolean {
+            var movedX = p_.getPos().x + p_.getVelocity().x;
 
-            if (p_.getPosX() + p_.getMoveX() < 0) return false;
-            if (p_.getPosX() + p_.getMoveX() + p_.getWidth() > 1024) return false;
+            if (movedX < 0) return false;
+            if (movedX + p_.getWidth() > 1024) return false;
 
             return true;
         }
@@ -93,9 +95,10 @@ namespace ws.world {
         }
 
         public canPlayerMoveY(p_: ws.entity.EntityPlayer): boolean {
+            var movedY = p_.getPos().y + p_.getVelocity().y;
 
-            if (p_.getPosY() + p_.getMoveY() < 0) return false;
-            if (p_.getPosY() + p_.getMoveY() + p_.getHeight() > 640) return false;
+            if (movedY < 0) return false;
+            if (movedY + p_.getHeight() > 640) return false;
 
             return true;
         }

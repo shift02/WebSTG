@@ -3,9 +3,7 @@ namespace ws.entity {
     export class Entity {
 
         protected pos: ws.util.Vec2;
-        
-        protected moveX: number = 0;
-        protected moveY: number = 0;
+        protected velocity: ws.util.Vec2;
 
         protected speed = 9;
         
@@ -23,6 +21,7 @@ namespace ws.entity {
         
         constructor(){
             this.pos = new ws.util.Vec2();
+            this.velocity = new ws.util.Vec2();
         }
 
         public updateEntity(): void {
@@ -32,10 +31,10 @@ namespace ws.entity {
 
         public doMove(): void {
 
-            if (this.canMoveX() && ws.Game.world.canMoveX(this,this.moveX)){
+            if (this.canMoveX() && ws.Game.world.canMoveX(this,this.velocity.x)){
                  this.doMoveX();
             }
-            if (this.canMoveY() && ws.Game.world.canMoveY(this,this.moveY)){
+            if (this.canMoveY() && ws.Game.world.canMoveY(this,this.velocity.y)){
                  this.doMoveY();
             }
 
@@ -54,8 +53,8 @@ namespace ws.entity {
             this.oldX = this.pos.x;
 
             for (let i = 0; i < this.getSpeed(); i++) {
-                if (this.canMoveX() && ws.Game.world.canMoveX(this,this.moveX)){
-                     this.pos.x += this.moveX;
+                if (this.canMoveX() && ws.Game.world.canMoveX(this,this.velocity.x)){
+                     this.pos.x += this.velocity.x;
                 }
             }
 
@@ -66,47 +65,27 @@ namespace ws.entity {
             this.oldY = this.pos.y;
             
             for (let i = 0; i < this.getSpeed(); i++) {
-                if (this.canMoveY() && ws.Game.world.canMoveY(this,this.moveY)){
-                     this.pos.y += this.moveY;
+                if (this.canMoveY() && ws.Game.world.canMoveY(this,this.velocity.y)){
+                     this.pos.y += this.velocity.y;
                 }
             }
 
         }
 
+        public setPos(pos_ : ws.util.Vec2):void{
+            this.pos = pos_;
+        }
+
         public getPos():ws.util.Vec2{
-          return this.pos;   
-        }
-        
-        public getPosX(): number {
-            return this.pos.x;
-        }
-        
-        public setPosX(x_ : number):void{
-           this.pos.x = x_;   
+            return this.pos;   
         }
 
-        public getPosY(): number {
-            return this.pos.y;
-        }
-        
-        public setPosY(y_ : number):void{
-           this.pos.y = y_;   
-        }
-        
-        public getMoveX(): number {
-            return this.moveX;
-        }
-        
-        public setMoveX(x_ : number):void{
-           this.moveX = x_;   
+        public setVelocity(vel_ : ws.util.Vec2):void{
+            this.velocity = vel_;
         }
 
-        public getMoveY(): number {
-            return this.moveY;
-        }
-        
-        public setMoveY(y_ : number):void{
-           this.moveY = y_;   
+        public getVelocity():ws.util.Vec2{
+            return this.velocity;
         }
 
         public getSpeed(): number {
