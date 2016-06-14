@@ -29,16 +29,17 @@ module ws.renderer {
             
             this.context.clearRect(0, 0, 1024, 640);
             
-            var pX = player_.getPosX();
-            var pY = player_.getPosY();
+            var pos = player_.getPos();
+            var pX = pos.x;
+            var pY = pos.y;
             
             if(player_.oldX!=this.oldX){
-                pX = player_.oldX+ Math.floor((player_.getPosX()-player_.oldX)/2);
+                pX = player_.oldX+ Math.floor((pos.x - player_.oldX)/2);
                 this.oldX = player_.oldX;
             }
             
             if(player_.oldY!=this.oldY){
-                pY = player_.oldY+ Math.floor((player_.getPosY()-player_.oldY)/2);
+                pY = player_.oldY+ Math.floor((pos.y - player_.oldY)/2);
                 this.oldY = player_.oldY;
             }
 

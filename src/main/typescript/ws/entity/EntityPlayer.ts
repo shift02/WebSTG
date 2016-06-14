@@ -3,12 +3,23 @@ namespace ws.entity {
 
     export class EntityPlayer extends Entity {
 
+        protected keyInput : ws.util.Vec2;
+
         constructor() {
             super();
-
+            this.keyInput = new ws.util.Vec2();
         }
 
         public updateEntity(): void {
+            this.velocity.x = this.keyInput.x;
+            this.velocity.y = this.keyInput.y;
+
+            // divide by sqrt(2)
+            if (this.velocity.x != 0 && this.velocity.y != 0) {
+                this.velocity.x *= 0.7071;
+                this.velocity.y *= 0.7071;
+            }
+
             super.updateEntity();
         }
 
@@ -19,16 +30,14 @@ namespace ws.entity {
 
             switch (key_code) {
                 case ws.Option.keyUP:
-                    this.moveY = 0; break;
+                    this.keyInput.y -= -1; break;
                 case ws.Option.keyLEFT:
-                    this.moveX = 0; break;
+                    this.keyInput.x -= -1; break;
                 case ws.Option.keyDOWN:
-                    this.moveY = 0; break;
+                    this.keyInput.y -= 1; break;
                 case ws.Option.keyRIGHT:
-                    this.moveX = 0; break;
-
+                    this.keyInput.x -= 1; break;
             }
-
 
         }
 
@@ -39,20 +48,18 @@ namespace ws.entity {
 
             switch (key_code) {
                 case ws.Option.keyUP:
-                    this.moveY = -1; break;
+                    this.keyInput.y += -1; break;
                 case ws.Option.keyLEFT:
-                    this.moveX = -1; break;
+                    this.keyInput.x += -1; break;
                 case ws.Option.keyDOWN:
-                    this.moveY = 1; break;
+                    this.keyInput.y += 1; break;
                 case ws.Option.keyRIGHT:
-                    this.moveX = 1; break;
+                    this.keyInput.x += 1; break;
                 case ws.Option.keyA:
                     this.doMainShot(); break;
                 case ws.Option.keyB:
                     this.doSub(); break;
-
             }
-
 
         }
 
@@ -60,9 +67,8 @@ namespace ws.entity {
 
             var b_ = new ws.entity.EntityBullet(ws.Game.bullet);
             //b_.setImgName("b");
-            b_.setPosX(this.pos.x);
-            b_.setPosY(this.pos.y - 16);
-            b_.setMoveY(-1);
+            b_.setPos(ws.util.Vec2.fromXY(this.pos.x, this.pos.y - 16));
+            b_.setVelocity(ws.util.Vec2.fromXY(0, -1));
 
             ws.Game.spawnplayerBullet(b_);
 
@@ -72,9 +78,8 @@ namespace ws.entity {
 
             var b_ = new ws.entity.EntityBullet(ws.Game.bullet2);
             //b_.setImgName("b");
-            b_.setPosX(this.pos.x);
-            b_.setPosY(this.pos.y - 16);
-            b_.setMoveY(-1);
+            b_.setPos(ws.util.Vec2.fromXY(this.pos.x, this.pos.y - 16));
+            b_.setVelocity(ws.util.Vec2.fromXY(0, -1));
 
             ws.Game.spawnplayerBullet(b_);
 
