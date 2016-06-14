@@ -1,6 +1,19 @@
+@CHARSET "UTF-8";
+@font-face {
+	font-family: 'PixelMplus10';
+	src: url('./app/resources/assets/core/font/PixelMplus10-Regular.woff') format('woff'),
+	url("./app/resources/assets/core/font/PixelMplus10-Regular.ttf") format('truetype');
+}
+
+@font-face {
+	font-family: 'PixelMplus10Bold';
+	src: url("./app/resources/assets/core/font/PixelMplus10-Bold.ttf") format('truetype');
+}
+
 body{
 	position: relative;
 	background-color: transparent;
+	font-family: "PixelMplus10","monospace";
 	margin: 0px;
 	line-height: 1;
 	font-smoothing: antialiased;
@@ -51,7 +64,7 @@ section{
 	z-index: 80;
 }
 
-/******************** ãNìÆâÊñ  **************************/
+/******************** Ëµ∑ÂãïÁîªÈù¢ **************************/
 
 #stage_logo{
 	background-color: black;
@@ -61,7 +74,7 @@ section{
 	margin: 64px 256px;
 }
 
-/******************** ì«Ç›çûÇ›âÊñ  **************************/
+/******************** Ë™≠„ÅøËæº„ÅøÁîªÈù¢ **************************/
 
 #stage_loading{
 	background-color: #000000;
@@ -90,8 +103,79 @@ section{
 	position: absolute;
 }
 
+/******************** „Çø„Ç§„Éà„É´ÁîªÈù¢ **************************/
 
-/******************** ÉQÅ[ÉÄâÊñ  **************************/
+#stage_title{
+	 text-align: center;
+	 background-image: url("./app/resources/assets/core/title.jpg");
+}
+#stage_title h1{
+	color: #DA5511;
+	cursor: default;
+	font-size: 130px;
+	font-weight: normal;
+	text-shadow:black 1px 1px 0px, black -1px 1px 0px,
+             	black 1px -1px 0px, black -1px -1px 0px;
+	position: relative;
+	margin: 68px 0px 0px 32px;
+}
+
+#please_e{
+	font-size: 48px;
+	color: #FFFFFF;
+	cursor: pointer;
+    bottom: 120px;
+    left: 210px;
+	position: absolute;
+	text-shadow:black 1px 1px 0px, black -1px 1px 0px,
+             	black 1px -1px 0px, black -1px -1px 0px;
+	animation: switchtext 1.2s infinite ease-in-out alternate;
+	animation-name: switchtext;
+	animation-duration: 0.8s;
+	animation-iteration-count:infinite;
+	animation-timing-function:ease-in-out;
+	animation-direction: alternate;
+	animation-delay: 0s;
+
+	/*Safari*/
+	-webkit-animation: switchtext 1.2s infinite ease-in-out alternate;
+	-webkit-animation-name: switchtext;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-delay: 0s;
+
+/* 	display: block; */
+}
+
+switchtext {
+ 	from { opacity: 1.0; }
+ 	to { opacity: 0; }
+}
+
+@keyframes switchtext {
+ 	from { opacity: 1.0; }
+ 	to { opacity: 0; }
+}
+
+@-webkit-keyframes switchtext {
+ 	from { opacity: 1.0; }
+ 	to { opacity: 0; }
+}
+
+#version{
+	color: #FFFFFF;
+	text-align: left;
+	cursor: default;
+	position:absolute;
+	left: 20px;
+	bottom: 20px;
+	text-shadow: black 1px 1px 0px, black -1px 1px 0px, black 1px -1px 0px, black -1px -1px 0px;
+}
+
+
+/******************** „Ç≤„Éº„É†ÁîªÈù¢ **************************/
 
 #stage_game{
 	background-color: transparent;
