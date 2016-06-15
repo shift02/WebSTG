@@ -1,6 +1,6 @@
 module ws.renderer {
 
-    export class RendererPlayerBullets {
+    export class RendererEnemy {
 
         public static canvas: HTMLCanvasElement;
         public static context: CanvasRenderingContext2D;
@@ -10,7 +10,7 @@ module ws.renderer {
 
         public static init() {
 
-            this.canvas = <HTMLCanvasElement>document.getElementById('game_player_bullets');
+            this.canvas = <HTMLCanvasElement>document.getElementById('game_enemy');
             this.context = this.canvas.getContext('2d');
 
             (<any>this.context).imageSmoothingEnabled = false;
@@ -18,14 +18,13 @@ module ws.renderer {
             (<any>this.context).mozImageSmoothingEnabled = false;
             (<any>this.context).webkitImageSmoothingEnabled = false;
 
-
         }
 
         public static updateRenderer() {
 
             this.context.clearRect(0, 0, 1024, 640);
 
-            for (let b_ of ws.Game.area.getPlayerBullets()) {
+            for (let b_ of ws.Game.area.getEnemys()) {
 
                 if (b_ == null) continue;
 

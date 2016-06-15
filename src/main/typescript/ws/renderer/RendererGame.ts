@@ -11,6 +11,8 @@ module ws.renderer {
             ws.renderer.RendererPlayer.init();
             
             ws.renderer.RendererPlayerBullets.init();
+            
+            ws.renderer.RendererEnemy.init();
 
 
         }
@@ -24,6 +26,8 @@ module ws.renderer {
             ws.renderer.RendererPlayer.updateRenderer();
             
             ws.renderer.RendererPlayerBullets.updateRenderer();
+            
+            ws.renderer.RendererEnemy.updateRenderer();
 
         }
 

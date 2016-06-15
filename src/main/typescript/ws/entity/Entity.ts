@@ -2,11 +2,13 @@ namespace ws.entity {
 
     export class Entity {
 
+        protected hp: number;
+
         protected pos: ws.util.Vec2;
         protected velocity: ws.util.Vec2;
 
         protected speed = 9;
-        
+
         protected width = 32;
         protected height = 32;
 
@@ -15,27 +17,28 @@ namespace ws.entity {
 
         public oldX: number;
         public oldY: number;
-        
+
         //なんでも入れれる入れ物
-        protected data:any  = {};
-        
-        constructor(){
+        protected data: any = {};
+
+        constructor() {
+            this.hp = 10;
             this.pos = new ws.util.Vec2();
             this.velocity = new ws.util.Vec2();
         }
 
         public updateEntity(): void {
             this.doMove();
-                        
+
         }
 
         public doMove(): void {
 
-            if (this.canMoveX() && ws.Game.world.canMoveX(this,this.velocity.x)){
-                 this.doMoveX();
+            if (this.canMoveX() && ws.Game.area.canMoveX(this, this.velocity.x)) {
+                this.doMoveX();
             }
-            if (this.canMoveY() && ws.Game.world.canMoveY(this,this.velocity.y)){
-                 this.doMoveY();
+            if (this.canMoveY() && ws.Game.area.canMoveY(this, this.velocity.y)) {
+                this.doMoveY();
             }
 
         }
@@ -53,60 +56,69 @@ namespace ws.entity {
             this.oldX = this.pos.x;
 
             for (let i = 0; i < this.getSpeed(); i++) {
-                if (this.canMoveX() && ws.Game.world.canMoveX(this,this.velocity.x)){
-                     this.pos.x += this.velocity.x;
+                if (this.canMoveX() && ws.Game.area.canMoveX(this, this.velocity.x)) {
+                    this.pos.x += this.velocity.x;
                 }
             }
 
         }
 
         public doMoveY(): void {
-            
+
             this.oldY = this.pos.y;
-            
+
             for (let i = 0; i < this.getSpeed(); i++) {
-                if (this.canMoveY() && ws.Game.world.canMoveY(this,this.velocity.y)){
-                     this.pos.y += this.velocity.y;
+                if (this.canMoveY() && ws.Game.area.canMoveY(this, this.velocity.y)) {
+                    this.pos.y += this.velocity.y;
                 }
             }
 
         }
 
-        public setPos(pos_ : ws.util.Vec2):void{
+        
+        public setHP(hp_ : number):void{
+          this.hp = hp_;   
+        }
+        
+        public getHP(): number {
+            return this.hp;
+        }
+
+        public setPos(pos_: ws.util.Vec2): void {
             this.pos = pos_;
         }
 
-        public getPos():ws.util.Vec2{
-            return this.pos;   
+        public getPos(): ws.util.Vec2 {
+            return this.pos;
         }
 
-        public setVelocity(vel_ : ws.util.Vec2):void{
+        public setVelocity(vel_: ws.util.Vec2): void {
             this.velocity = vel_;
         }
 
-        public getVelocity():ws.util.Vec2{
+        public getVelocity(): ws.util.Vec2 {
             return this.velocity;
         }
 
         public getSpeed(): number {
             return this.speed;
         }
-        
+
         public getWidth(): number {
             return this.width;
         }
-        
+
         public getHeight(): number {
             return this.height;
         }
-        
+
         /** 死亡しているか */
         public isDeath(): boolean {
             return false;
         }
-        
-        public getData():any{
-           return this.data;   
+
+        public getData(): any {
+            return this.data;
         }
 
         /** Entityの画像の名前をセットする */
@@ -129,11 +141,11 @@ namespace ws.entity {
         }
 
         public getImage(): HTMLImageElement {
-            
-            if(this.img==null){
-                this.img = ws.Launcher.imgLoader.load(this.imgName,null);
+
+            if (this.img == null) {
+                this.img = ws.Launcher.imgLoader.load(this.imgName, null);
             }
-            
+
             return this.img;
         }
 

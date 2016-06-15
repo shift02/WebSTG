@@ -7,7 +7,7 @@ namespace ws {
         public static bullet:ws.bullet.BulletBase;
         public static bullet2:ws.bullet.BulletBase;
 
-        public static world: ws.world.WorldBase;
+        public static area: ws.world.area.AreaBase;
 
         public static updateRenderer:boolean = false;
         
@@ -24,8 +24,8 @@ namespace ws {
             stageManager_.LOADING.setLoaded(ws.Game.startGame);
             
             //ワールドの初期化
-            this.world = new ws.world.WorldTest();
-            this.world.init();
+            this.area = new ws.world.area.AreaTest();
+            this.area.preInit();
 
             //プレイヤーの初期化
             this.player = new ws.entity.EntityPlayer();
@@ -82,14 +82,14 @@ namespace ws {
         //World関係
         public static spawnplayerBullet(e_ : ws.entity.EntityBullet){
             
-           this.world.getPlayerBullets().push(e_);
+           this.area.getPlayerBullets().push(e_);
         }
 
         /** システムループ　FPS30 */
         public static updateSystem(): void {
 
             if (this.player != null) this.player.updateEntity();
-            if(this.world !=null)this.world.updateWorld();
+            if(this.area !=null)this.area.preUpdateArea();
             
             this.updateRenderer = true;
 
