@@ -2,20 +2,28 @@ namespace ws.enemy {
 
     export class Enemy {
 
+        protected bullets : Array<ws.bullet.BulletBase>;
 
         protected imgName: string = null;
         protected img: HTMLImageElement = null;
 
         constructor() {
+            this.bullets = new Array<ws.bullet.BulletBase>();
 
         }
 
         public updateEnemy(entity: ws.entity.EntityEnemy): void {
 
+            
+            
         }
 
         public isDeath(entity: ws.entity.EntityEnemy): boolean {
             return entity.getHP()<=0;
+        }
+        
+        public addBullet(b_ :ws.bullet.BulletBase){
+            this.bullets.push(b_);
         }
 
         /** Entityの画像の名前をセットする */
@@ -49,6 +57,7 @@ namespace ws.enemy {
         /** 画像や音をロードする */
         public load() {
             this.loadImage(ws.Launcher.imgLoader);
+            this.loadBulletImage(ws.Launcher.imgLoader);
         }
 
         protected loadImage(loader: ws.network.ImageLoader) {
@@ -58,6 +67,18 @@ namespace ws.enemy {
             ws.Game.onLoad();
             this.img = loader.load(this.imgName, ws.Game.onLoaded);
 
+        }
+        
+        protected loadBulletImage(loader: ws.network.ImageLoader) {
+            
+            if (this.bullets.length == 0) return;
+            
+            for(let b_ of this.bullets){
+                
+                b_.load();
+                
+            }
+            
         }
 
     }

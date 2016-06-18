@@ -13,6 +13,10 @@ module ws.renderer {
             ws.renderer.RendererPlayerBullets.init();
             
             ws.renderer.RendererEnemy.init();
+            
+            ws.renderer.RendererEnemyBullets.init();
+            
+            ws.renderer.RendererHUD.init();
 
 
         }
@@ -28,6 +32,10 @@ module ws.renderer {
             ws.renderer.RendererPlayerBullets.updateRenderer();
             
             ws.renderer.RendererEnemy.updateRenderer();
+            
+            ws.renderer.RendererEnemyBullets.updateRenderer();
+            
+            ws.renderer.RendererHUD.updateRenderer();
 
         }
 

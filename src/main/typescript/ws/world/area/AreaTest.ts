@@ -9,7 +9,7 @@ namespace ws.world.area{
         
         public initEnemy(){
             
-            this.testEntity = new ws.enemy.Enemy();
+            this.testEntity = new ws.enemy.EnemyNormal();
             this.testEntity.setImgName("e");
             this.testEntity.load();
             

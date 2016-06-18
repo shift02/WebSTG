@@ -50,11 +50,12 @@ namespace ws.util {
         }
        
         /** 単位ベクトルに変換 */
-        public normalize(){
+        public normalize() :Vec2{
             var l_ = this.length();
             var j = 1 / l_;
             this.x *= j;
             this.y *= j;
+            return this;
         }
         
         /** コピー */

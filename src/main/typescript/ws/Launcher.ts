@@ -25,6 +25,9 @@ namespace ws {
             //FPSを表示させる機能を初期化
             ws.renderer.RendererInfo.init();
             
+            //描画お助けクラスの初期化
+            ws.util.RendererUtil.init();
+            
             this.systemFPS = new ws.util.FPS(30);//システムループ用のFPSを初期化
 
             loopSystem();//システムのループスタート

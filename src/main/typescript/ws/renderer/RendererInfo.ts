@@ -55,6 +55,7 @@ namespace ws.renderer {
             this.context.clearRect(0, 65, this.canvas.width, 200);
 
 
+            //Bullet
             this.context.restore();
             this.context.font = "14px 'ＭＳ ゴシック'";
             this.context.lineWidth = 3.0;
@@ -63,6 +64,26 @@ namespace ws.renderer {
 
             this.context.fillStyle = 'white';
             this.context.fillText('P_Bullets  　:  ' + ws.Game.area.getPlayerBullets().length, 10, 50);
+            
+            //Enemy
+            this.context.restore();
+            this.context.font = "14px 'ＭＳ ゴシック'";
+            this.context.lineWidth = 3.0;
+            this.context.strokeStyle = '#555555';
+            this.context.strokeText('Enemy  　:  ' + ws.Game.area.getEnemys().length, 10, 80);
+
+            this.context.fillStyle = 'white';
+            this.context.fillText('Enemy  　:  ' + ws.Game.area.getEnemys().length, 10, 80);
+            
+            //Enemy_B
+            this.context.restore();
+            this.context.font = "14px 'ＭＳ ゴシック'";
+            this.context.lineWidth = 3.0;
+            this.context.strokeStyle = '#555555';
+            this.context.strokeText('E_Bullets  　:  ' + ws.Game.area.getEnemyBullets().length, 10, 110);
+
+            this.context.fillStyle = 'white';
+            this.context.fillText('E_Bullets  　:  ' + ws.Game.area.getEnemyBullets().length, 10, 110);
 
 
         }

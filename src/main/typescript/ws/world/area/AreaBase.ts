@@ -11,6 +11,7 @@ namespace ws.world.area {
         protected playerBullets: Array<ws.entity.EntityBullet>;
         
         protected enemys: Array<ws.entity.EntityEnemy>;
+        protected enemyBullets: Array<ws.entity.EntityBullet>;
         
         //なんでも入れれる入れ物
         protected data:any;
@@ -19,6 +20,7 @@ namespace ws.world.area {
 
             this.playerBullets = new Array();
             this.enemys = new Array();
+            this.enemyBullets = new Array();
             this.data = {};
             
             this.initEnemy();
@@ -33,6 +35,7 @@ namespace ws.world.area {
         public preUpdateArea(): void {
             this.updatePlayerBullets();
             this.updateEnemy();
+            this.updateEnemyBullets();
             this.updateArea();
         }
         
@@ -67,6 +70,20 @@ namespace ws.world.area {
             }
             
         }
+        
+        public updateEnemyBullets(): void {
+
+            let len = this.enemyBullets.length - 1;
+            for (let i = len; i >= 0; i--) {
+
+                this.enemyBullets[i].updateEntity();
+
+                if (this.isOffScreen(this.enemyBullets[i]) || this.enemyBullets[i].isDeath()) {
+                    this.enemyBullets.splice(i, 1);
+                }
+            }
+
+        }
 
         public isOffScreen(e_: ws.entity.Entity): boolean {
 
@@ -82,6 +99,10 @@ namespace ws.world.area {
         public spawnEnemy(e_ : ws.entity.EntityEnemy){
              this.enemys.push(e_);
         }
+        
+        public spawnEnemyBullets(e_ : ws.entity.EntityBullet){
+             this.enemyBullets.push(e_);
+        }
 
         public getPlayerBullets(): Array<ws.entity.EntityBullet> {
             return this.playerBullets;
@@ -89,6 +110,10 @@ namespace ws.world.area {
         
         public getEnemys(): Array<ws.entity.EntityEnemy> {
             return this.enemys;
+        }
+        
+        public getEnemyBullets(): Array<ws.entity.EntityBullet> {
+            return this.enemyBullets;
         }
 
         public getWidth(): number {
